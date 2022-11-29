@@ -33,7 +33,7 @@ class Running extends Workout {
     }
 
     calcPace() {
-        this.pace = this.distance / this.duration
+        this.pace = (this.distance / this.duration).toFixed(1)
         return this.pace
     }
 
@@ -48,7 +48,7 @@ class Cycling extends Workout {
         this._setDescription()
     }
     calcSpeed() {
-        this.speed = this.distance / (this.duration / 60)
+        this.speed = (this.distance / (this.duration / 60)).toFixed(1)
         return this.speed
     }
 }
@@ -277,7 +277,7 @@ class App {
         if (!data) return
 
         this.#workouts = data
-        this.#workouts.forEach((work) => {
+        this.#workouts.forEach(work => {
             this._renderWorkout(work)
         }
         )
